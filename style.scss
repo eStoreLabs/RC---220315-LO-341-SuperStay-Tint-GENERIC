@@ -65,6 +65,7 @@ body {
     }
 
     &--under {
+      font-size: 38px;
       position: relative;
       &::after {
         display: block;
@@ -77,6 +78,9 @@ body {
         width: 95%;
         height: 2px;
         border-bottom: 2px solid #f5a955;
+      }
+      span {
+        font-weight: normal;
       }
     }
     &--upper {
@@ -122,29 +126,30 @@ body {
         height: 100%;
       }
     }
+    &__title--white {
+      color: #fff;
+    }
+    &__text--glow {
+      color: #fff;
+      text-shadow: 0 0 11px rgba(253, 248, 254, 1.55);
+    }
+    &__text--orange {
+      color: #fcc46c;
+    }
     &__text--one {
       position: absolute;
       left: 22px;
       bottom: 12px;
       font-weight: 700;
-      font-size: 35px;
+      font-size: 17px;
       text-transform: uppercase;
       letter-spacing: -1px;
+      color: #fff;
       font-family: $condensed;
-      color: #e4b3c0;
       line-height: 1;
       opacity: 0;
       animation: slideright 0.6s forwards;
       animation-delay: 0.4s;
-      -webkit-text-fill-color: rgba(228, 179, 192, 0);
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: #fff;
-      span {
-        color: #fff;
-        -webkit-text-fill-color: #fff;
-        -webkit-text-stroke-width: 0;
-        -webkit-text-stroke-color: #fff;
-      }
       sup {
         line-height: 0;
         font-size: 0.5em;
@@ -161,11 +166,14 @@ body {
     }
     &__text--two {
       position: absolute;
-      bottom: 42px;
-      right: 52px;
+      margin-top: 20px;
+      top: 30px;
+      left: 22px;
+      gap: 20px;
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
       img {
         max-width: 50px;
         margin-bottom: 15px;
@@ -177,15 +185,42 @@ body {
         letter-spacing: -2px;
       }
     }
+    &__text--namebg {
+      display: block;
+      width: 120px;
+      padding: 2px 15px;
+      margin-bottom: 10px !important;
+      font-size: 20px;
+      font-weight: 800;
+      font-family: $condensed;
+      color: #000 !important;
+      text-align: center;
+      background-color: #fff;
+    }
     &__text--title {
       font-size: 30px;
       font-weight: 800;
+      color: #fff;
       font-family: $condensed;
     }
   }
 
   .es-features {
     margin-bottom: 72px;
+    &__inner {
+      margin-bottom: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    &__text-inner {
+      display: flex;
+      flex-direction: column;
+    }
+    &__image {
+      @include img;
+    }
     &__title {
       @include text;
       padding: 0 16px;
@@ -198,6 +233,11 @@ body {
       text-align: center;
       font-family: $condensed;
       &--gradient {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 32px;
         background: -webkit-linear-gradient(left, #f4a452, #ee6f34);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -208,9 +248,12 @@ body {
     }
     &__subtitle {
       @include text;
-      padding: 0 16px;
-      text-align: center;
       margin-bottom: 64px;
+      font-weight: 700;
+      padding: 0 16px;
+      font-size: 23px;
+      text-align: center;
+      text-transform: uppercase;
     }
     &__container {
       display: flex;
@@ -236,6 +279,11 @@ body {
       padding: 16px;
       text-align: center;
       min-height: 56px;
+    }
+    &__benefit-subtitle {
+      margin-top: -10px;
+      display: block;
+      text-align: center;
     }
     &__text {
       @include text;
@@ -305,7 +353,7 @@ body {
     &__container {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
       gap: 2px;
     }
@@ -333,6 +381,7 @@ body {
       width: 100%;
       height: 100%;
       margin: -5px;
+      margin-bottom: 10px;
       padding: 0;
       img {
         height: auto;
@@ -387,21 +436,42 @@ body {
       flex-wrap: wrap;
       justify-content: center;
       height: auto;
-      padding: 32px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+    &__inner {
+      display: flex;
+      justify-content: center;
+      max-width: 500px;
+      padding-top: 40px;
+      margin-bottom: 50px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
     &__single {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       height: auto;
+      gap: 10px;
       margin: 0 2px;
-      max-width: 200px;
+      max-width: 255px;
     }
     &__img {
       width: 100%;
       img {
-        width: 100%;
+        width: 150px;
+        height: 150px;
       }
+    }
+
+    &__image {
+      @include img;
+    }
+    &__desc {
+      @include text;
+      font-weight: normal;
+      font-size: 13px;
     }
     &__text {
       height: 100%;
@@ -410,10 +480,20 @@ body {
       font-family: $condensed;
       font-weight: 600;
       display: flex;
+      align-items: flex-start;
       flex-direction: column;
     }
     &__title--single {
+      padding: 5px 15px;
+      margin-top: 0;
+      font-size: 14px;
+      background: -webkit-linear-gradient(left, #ee6f34, #f4a452);
+      color: #fff;
       text-transform: uppercase;
+    }
+    &__title--last {
+      font-size: 13px;
+      padding: 5px 5px;
     }
   }
   .es-others {
@@ -481,8 +561,8 @@ body {
   .es-cross {
     margin-bottom: 56px;
     padding: 0 16px;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-color: #e6773f;
     &__title {
       @include text;
@@ -508,7 +588,7 @@ body {
       display: none;
     }
     &__single {
-      max-width: 240px;
+      max-width: 210px;
       display: flex;
       align-items: center;
       flex-flow: column;
@@ -530,15 +610,15 @@ body {
       width: 100%;
       border-bottom: 2px solid;
     }
-    &__imgline {
-      display: none;
-    }
     &__img {
       @include img;
       transition: all 0.3s;
     }
     &__subtitle {
-      min-height: 30px;
+      text-align: center;
+      min-height: 45px;
+      font-weight: 500;
+      text-transform: uppercase;
     }
     &__name {
       @include text;
@@ -547,7 +627,7 @@ body {
       font-weight: 700;
       text-align: center;
       margin-bottom: 8px;
-      font-size: 36px;
+      font-size: 28px;
       &--subname {
         min-height: 60px;
         text-transform: none;
@@ -704,10 +784,45 @@ body {
     }
   }
 
+  @media screen and (min-width: 460px) {
+    .es-kv {
+      &__text--one {
+        font-size: 28px;
+      }
+      &__text--two {
+        left: 42px;
+      }
+    }
+  }
+
   @media screen and (min-width: 560px) {
     .es-kv {
       &__title {
         font-size: 48px;
+      }
+    }
+
+    .es-features {
+      &__title {
+        &--gradient {
+          font-size: 38px;
+        }
+      }
+
+      &__single {
+        max-width: 240px;
+      }
+    }
+
+    .es-steps {
+      &__inner {
+        max-width: 620px;
+      }
+    }
+
+    .es-colors {
+      &__container {
+        width: 500px;
       }
     }
   }
@@ -716,6 +831,10 @@ body {
     .es-kv {
       padding-top: 37px;
       position: relative;
+
+      &__text--one {
+        font-size: 24px;
+      }
 
       &__badge {
         display: block;
@@ -756,8 +875,11 @@ body {
     }
 
     .es-features {
-      &__single {
-        max-width: 330px;
+      &__inner {
+        flex-direction: row;
+      }
+      &__image {
+        width: 50%;
       }
       &__img {
         transition: opacity 0.3s;
@@ -802,6 +924,44 @@ body {
   }
   @media screen and (min-width: 998px) {
     .es-kv {
+      &__text--one {
+        font-size: 26px;
+      }
+      &__text--two {
+        margin-top: 40px;
+        margin-left: 20px;
+        width: 400px;
+      }
+    }
+    .es-features {
+      &__single {
+        max-width: 330px;
+      }
+      &__text-inner {
+        min-width: 412px;
+      }
+      &__image {
+        width: 100%;
+        max-width: 602px;
+      }
+    }
+
+    .es-colors {
+      &__container {
+        width: 100%;
+      }
+    }
+
+    .es-steps {
+      &__container {
+        flex-wrap: nowrap;
+      }
+      &__inner {
+        max-width: 100%;
+      }
+      &__image {
+        max-width: 450px;
+      }
     }
 
     .es-cross {
@@ -809,6 +969,18 @@ body {
       background-size: 1050px;
       &__line {
         display: block;
+      }
+      &__single {
+        max-width: 240px;
+      }
+    }
+
+    .es-cross2 {
+      &__single {
+        max-width: 235px;
+      }
+      &__desc {
+        min-height: 82px;
       }
     }
   }
